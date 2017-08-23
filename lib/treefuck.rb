@@ -10,6 +10,8 @@ class Treefuck
             print @val
           when ","
             @val = gets.chomp
+          when "+"
+            @val += 1
         end
       end
     end
