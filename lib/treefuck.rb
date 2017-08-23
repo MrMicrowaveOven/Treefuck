@@ -5,10 +5,11 @@ class Treefuck
       commands = command_string.chars
       until commands.empty?
         current_command = commands.shift
-        if current_command == "."
-          print @val
-        elsif current_command == ","
-          @val = gets.chomp
+        case current_command
+          when "."
+            print @val
+          when ","
+            @val = gets.chomp
         end
       end
     end
