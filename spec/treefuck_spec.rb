@@ -4,6 +4,9 @@ describe "Treefuck" do
   it "can output the default value with `.`" do
     expect { Treefuck.new(".") }.to output('0').to_stdout
   end
+  it "can output several times with `..`" do
+    expect { Treefuck.new("..") }.to output('00').to_stdout
+  end
   it "can take input with `,`" do
     Treefuck.any_instance.stub(gets: "8")
     expect { Treefuck.new(",.") }.to output('8').to_stdout
