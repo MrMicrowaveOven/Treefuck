@@ -12,6 +12,8 @@ class Treefuck
             @val = gets.chomp
           when "+"
             @val += 1
+          when "-"
+            @val -= 1
         end
       end
     end
