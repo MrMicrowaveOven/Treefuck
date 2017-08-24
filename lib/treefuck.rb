@@ -23,7 +23,7 @@ class Treefuck
               run_commands(commands.join.match(/[^\]\[]*\]/).to_a.first.chars)
             end
             end_of_brackets_index = commands.index("]")
-            commands = commands.slice(end_of_brackets_index, commands.length)
+            commands = commands.slice(end_of_brackets_index + 1, commands.length)
           when "]"
             return
           when "<"
@@ -40,6 +40,10 @@ class Treefuck
     end
 
     def parent(commands)
+      # I'm not sure if an uninitialized parent should set
+      # this node as left_child or right_child by default,
+      # so I'll just raise an error for now.
+      raise StandardError, "No parent initialized" unless @parent
       @parent ||= Treefuck.new
       @parent.run_commands(commands)
     end

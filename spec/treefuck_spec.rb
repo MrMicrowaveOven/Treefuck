@@ -40,4 +40,21 @@ describe "Treefuck" do
     expect { Treefuck.new("+<++|<|.") }.to output('1').to_stdout
     expect { Treefuck.new("+<++|<.") }.to output('2').to_stdout
   end
+  it "can iterate through parent and child" do
+    Treefuck.any_instance.stub(gets: "3")
+    expect { Treefuck.new(",[>+.|-],[<+.|-]")}.to output('123123').to_stdout
+  end
+  it "outputs a sum of children" do
+    Treefuck.any_instance.stub(gets: "4")
+    expect { Treefuck.new("<,|>,|<[-|+<]|>[-|+>]|.") }.to output("8").to_stdout
+  end
+  it "can't work its way up uninitialized ancestors" do
+    expect { Treefuck.new("|||+|>.") }.to raise_error(StandardError)
+    expect { Treefuck.new("|||+|<.") }.to raise_error(StandardError)
+    expect { Treefuck.new("|") }.to raise_error(StandardError)
+  end
+  # it "can print 'Hello World!'" do
+  #   hello_world_string = "++++++++[>++++[>++>+++>+++>+||||-]>+>+>->>+[|]|-]>>.>---.+++++++..+++.>>.|-.|.+++.------.--------.>>+.>++."
+  #   expect { Treefuck.new(hello_world_string) }.to output("?").to_stdout
+  # end
 end
