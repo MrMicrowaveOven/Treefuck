@@ -40,26 +40,17 @@ class Treefuck
     end
 
     def parent(commands)
-      if @parent
-        @parent.run_commands(commands)
-      else
-        @parent = Treefuck.new(commands.join)
-      end
+      @parent ||= Treefuck.new
+      @parent.run_commands(commands)
     end
 
     def left_child(commands)
-      if @left_child
-        @left_child.run_commands(commands)
-      else
-        @left_child = Treefuck.new(commands.join, self)
-      end
+      @left_child ||= Treefuck.new("", self)
+      @left_child.run_commands(commands)
     end
 
     def right_child(commands)
-      if @right_child
-        @right_child.run_commands(commands)
-      else
-        @right_child = Treefuck.new(commands.join, self)
-      end
+      @right_child ||= Treefuck.new("", self)
+      @right_child.run_commands(commands)
     end
 end

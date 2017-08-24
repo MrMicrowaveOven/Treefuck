@@ -36,5 +36,8 @@ describe "Treefuck" do
     expect { Treefuck.new(">++.") }.to output('2').to_stdout
     expect { Treefuck.new(">++|.") }.to output('0').to_stdout
   end
-
+  it "remembers parent and children" do
+    expect { Treefuck.new("+<++|<|.") }.to output('1').to_stdout
+    expect { Treefuck.new("+<++|<.") }.to output('2').to_stdout
+  end
 end
