@@ -24,8 +24,17 @@ describe "Treefuck" do
     Treefuck.any_instance.stub(gets: "8")
     expect { Treefuck.new(",+.") }.to output('9').to_stdout
   end
-  it "can run commands several times inside the `[]` blocks" do
+  it "can iterate inside the `[]` blocks" do
     Treefuck.any_instance.stub(gets: "3")
     expect { Treefuck.new(",[.-]") }.to output('321').to_stdout
   end
+  it "can make left children and increment them seperately" do
+    expect { Treefuck.new("<++.") }.to output('2').to_stdout
+    expect { Treefuck.new("<++|.") }.to output('0').to_stdout
+  end
+  it "can make right children and increment them seperately" do
+    expect { Treefuck.new(">++.") }.to output('2').to_stdout
+    expect { Treefuck.new(">++|.") }.to output('0').to_stdout
+  end
+
 end
