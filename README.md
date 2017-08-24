@@ -1,5 +1,9 @@
 # Treefuck
 
+Here's a one-liner to clone the repo and run the tests.
+
+`git clone https://github.com/MrMicrowaveOven/Treefuck.git && cd Treefuck && bundle install && rspec`
+
 ## Objective
 
 Implement the programming language Treefuck, which is based on Brainfuck (another language).
