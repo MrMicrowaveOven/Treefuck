@@ -53,6 +53,11 @@ describe "Treefuck" do
     expect { Treefuck.new("|||+|<.") }.to raise_error(StandardError)
     expect { Treefuck.new("|") }.to raise_error(StandardError)
   end
+  
+  # Not quite sure what this example is supposed to do.
+  # It's too long to work out manually, and for some reason
+  # it's causing an infinite loop in my version.
+
   # it "can print 'Hello World!'" do
   #   hello_world_string = "++++++++[>++++[>++>+++>+++>+||||-]>+>+>->>+[|]|-]>>.>---.+++++++..+++.>>.|-.|.+++.------.--------.>>+.>++."
   #   expect { Treefuck.new(hello_world_string) }.to output("?").to_stdout
