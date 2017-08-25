@@ -1,4 +1,4 @@
-class Treefuck
+class Treehugger
     def initialize(command_string = "", parent = nil)
       @val = 0
       @parent = parent
@@ -44,17 +44,17 @@ class Treefuck
       # this node as left_child or right_child by default,
       # so I'll just raise an error for now.
       raise StandardError, "No parent initialized" unless @parent
-      @parent ||= Treefuck.new
+      @parent ||= Treehugger.new
       @parent.run_commands(commands)
     end
 
     def left_child(commands)
-      @left_child ||= Treefuck.new("", self)
+      @left_child ||= Treehugger.new("", self)
       @left_child.run_commands(commands)
     end
 
     def right_child(commands)
-      @right_child ||= Treefuck.new("", self)
+      @right_child ||= Treehugger.new("", self)
       @right_child.run_commands(commands)
     end
 end

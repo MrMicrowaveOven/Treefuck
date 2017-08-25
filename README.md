@@ -1,18 +1,18 @@
-# Treefuck
+# Treehugger
 
 Here's a one-liner to clone the repo and run the tests.
 
-`git clone https://github.com/MrMicrowaveOven/Treefuck.git && cd Treefuck && bundle install && rspec`
+`git clone https://github.com/MrMicrowaveOven/Treehugger.git && cd Treehugger && bundle install && rspec`
 
 ## Objective
 
-Implement the programming language Treefuck, which is based on Brainfuck (another language).
+Implement the programming language Treehugger, which is based on Brainfuck (another language).
 
 You should write an interpreter (takes in a program as a string and execute it) and implement any necessary underlying data structure(s).
 
 ## Process
 
-The language consists of nine commands, listed below. A Treefuck program is
+The language consists of nine commands, listed below. A Treehugger program is
 a sequence of these commands, possibly interspersed with other
 characters (which are ignored). The commands are executed sequentially, with
 some exceptions: an instruction pointer begins at the first command, and each
@@ -20,7 +20,7 @@ command it points to is executed, after which it normally moves forward to
 the next command. The program terminates when the instruction pointer moves
 past the last command.
 
-The Treefuck language uses a simple machine model consisting of the program
+The Treehugger language uses a simple machine model consisting of the program
 and instruction pointer, as well as an infinitely large binary tree, with each
 node initialized to zero.
 
